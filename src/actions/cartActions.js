@@ -6,7 +6,7 @@ import { CART_ADD_ITEM,
          CART_SAVE_PAYMENT_METHOD,} from '../constants/cartConstants'
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
-    const { data } = await axios.get(`/api/products/${id}`)
+    const { data } = await axios.get(`https://django-ecommerce-93uq.onrender.com/api/products/${id}`)
 
     dispatch({
         type: CART_ADD_ITEM,

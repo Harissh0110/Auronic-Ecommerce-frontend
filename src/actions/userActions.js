@@ -48,7 +48,7 @@ export const login = (email, password) => async (dispatch) => {
         }
 
         const { data } = await axios.post(
-            '/api/users/login/',
+            'https://django-ecommerce-93uq.onrender.com/api/users/login/',
             { 'username': email, 'password': password },
             config
         )
@@ -93,7 +93,7 @@ export const register = (name, email, password) => async (dispatch) =>{
             }
         }
 
-        const {data} = await axios.post('/api/users/register/', {'name':name, 'email':email, 'password': password}, config) 
+        const {data} = await axios.post('https://django-ecommerce-93uq.onrender.com/api/users/register/', {'name':name, 'email':email, 'password': password}, config) 
 
         dispatch({
             type:USER_REGISTER_SUCCESS,
@@ -133,7 +133,7 @@ export const getUserDetails = (id) => async (dispatch, getState) =>{
             }
         }
 
-        const {data} = await axios.get(`/api/users/${id}/`, config) 
+        const {data} = await axios.get(`https://django-ecommerce-93uq.onrender.com/api/users/${id}/`, config) 
 
         dispatch({
             type:USER_DETAILS_SUCCESS,
@@ -167,7 +167,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) =>{
         }
 
         const {data} = await axios.put(
-            `/api/users/profile/update/`,
+            `https://django-ecommerce-93uq.onrender.com/api/users/profile/update/`,
              user, config) 
 
         dispatch({
@@ -208,7 +208,7 @@ export const listUsers = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `/api/users/`,
+            `https://django-ecommerce-93uq.onrender.com/api/users/`,
             config
         )
 
@@ -247,7 +247,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.delete(
-            `/api/users/delete/${id}/`,
+            `https://django-ecommerce-93uq.onrender.com/api/users/delete/${id}/`,
             config
         )
 
@@ -286,7 +286,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `/api/users/update/${user._id}/`,
+            `https://django-ecommerce-93uq.onrender.com/api/users/update/${user._id}/`,
             user,
             config
         )

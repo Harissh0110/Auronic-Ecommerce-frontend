@@ -36,7 +36,7 @@ export const listProducts = (keyword = '', page = 1) => async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_LIST_REQUEST });
   
-      const { data } = await axios.get(`/api/products?keyword=${keyword}&page=${page}`);
+      const { data } = await axios.get(`https://django-ecommerce-93uq.onrender.com/api/products?keyword=${keyword}&page=${page}`);
 
 
       dispatch({
@@ -58,7 +58,7 @@ export const listTopProducts = () => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_TOP_REQUEST })
 
-        const { data } = await axios.get(`/api/products/top/`)
+        const { data } = await axios.get(`https://django-ecommerce-93uq.onrender.com/api/products/top/`)
 
         dispatch({
             type: PRODUCT_TOP_SUCCESS,
@@ -80,7 +80,7 @@ export const listProductDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`/api/products/${id}`)
+        const { data } = await axios.get(`https://django-ecommerce-93uq.onrender.com/api/products/${id}`)
 
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
@@ -116,7 +116,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.delete(
-            `/api/products/delete/${id}/`,
+            `https://django-ecommerce-93uq.onrender.com/api/products/delete/${id}/`,
             config
         )
 
@@ -156,7 +156,7 @@ export const createProduct = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.post(
-            `/api/products/create/`,
+            `https://django-ecommerce-93uq.onrender.com/api/products/create/`,
             {},
             config
         )
@@ -196,7 +196,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `/api/products/update/${product._id}/`,
+            `https://django-ecommerce-93uq.onrender.com/api/products/update/${product._id}/`,
             product,
             config
         )
@@ -240,7 +240,7 @@ export const createProductReview = (productId, review) => async (dispatch, getSt
         }
 
         const { data } = await axios.post(
-            `/api/products/${productId}/reviews/`,
+            `https://django-ecommerce-93uq.onrender.com/api/products/${productId}/reviews/`,
             review,
             config
         )

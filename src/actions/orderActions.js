@@ -25,8 +25,6 @@ import {
     ORDER_DELIVER_FAIL,
 } from '../constants/orderConstants'
 
-// import { CART_CLEAR_ITEMS } from '../constants/cartConstants'
-
 
 export const createOrder = (order) => async (dispatch, getState) => {
     try {
@@ -46,7 +44,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.post(
-            `/api/orders/add/`,
+            `https://django-ecommerce-93uq.onrender.com/api/orders/add/`,
             order,
             config
         )
@@ -55,11 +53,6 @@ export const createOrder = (order) => async (dispatch, getState) => {
             type: ORDER_CREATE_SUCCESS,
             payload: data
         })
-
-        // dispatch({
-        //     type: CART_CLEAR_ITEMS,
-        //     payload: data
-        // })
 
         localStorage.removeItem('cartItems')
 
@@ -93,7 +86,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `/api/orders/${id}/`,
+            `https://django-ecommerce-93uq.onrender.com/api/orders/${id}/`,
             config
         )
 
@@ -133,7 +126,7 @@ export const payOrder = (id, paymentResult) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `/api/orders/${id}/pay/`,
+            `https://django-ecommerce-93uq.onrender.com/api/orders/${id}/pay/`,
             paymentResult,
             config
         )
@@ -173,7 +166,7 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `/api/orders/${order._id}/deliver/`,
+            `https://django-ecommerce-93uq.onrender.com/api/orders/${order._id}/deliver/`,
             {},
             config
         )
@@ -214,7 +207,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `/api/orders/myorders/`,
+            `https://django-ecommerce-93uq.onrender.com/api/orders/myorders/`,
             config
         )
 
@@ -253,7 +246,7 @@ export const listOrders = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `/api/orders/`,
+            `https://django-ecommerce-93uq.onrender.com/api/orders/`,
             config
         )
 

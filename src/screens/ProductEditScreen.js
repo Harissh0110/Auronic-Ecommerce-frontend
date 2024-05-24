@@ -87,7 +87,7 @@ function ProductEditScreen() {
                     }
                 }
     
-                const { data } = await axios.post('/api/products/upload/', formData, config)
+                const { data } = await axios.post('https://django-ecommerce-93uq.onrender.com/api/products/upload/', formData, config)
     
     
                 setImage(data)

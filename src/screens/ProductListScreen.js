@@ -43,7 +43,6 @@ function ProductListScreen() {
         if (successCreate) {
             navigate(`/admin/product/${createdProduct._id}/edit`)
         } else {
-            console.log("Current Page:", currentPage);
             dispatch(listProducts(keyword, currentPage))
         }
 
